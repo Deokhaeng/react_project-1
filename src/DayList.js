@@ -53,13 +53,13 @@ const DayList = (props) => {
   // };
   // ----------------------------------------
   const cicleList = [0, 1, 2, 3, 4];
-  //( Math.random() * ( 최대값 - 최소값 )  ) + 최소값
 
   return (
     <ListStyle>
       <Title>내 일주일은?</Title>
       {day_list.map((item, i) => {
         let randomCircle = Math.floor(Math.random() * 5);
+        //( Math.random() * ( 최대값 - 최소값 )  ) + 최소값
         return (
           <div
             key={i}
