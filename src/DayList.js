@@ -6,54 +6,60 @@ import { useSelector } from "react-redux";
 
 const DayList = (props) => {
   const history = useHistory();
-  const day_btn = useSelector((state) => state.day.list);
+  const day_list = useSelector((state) => state.day.item);
+  // ----------------------------------------
+  // 평점 랜덤함수/ 배열에서 무작위로 요소 선택해서 출력하는 방식
+  // const circle = [
+  //   [
+  //     <YellowCircle key={10} />,
+  //     <GrayCircle key={11} />,
+  //     <GrayCircle key={12} />,
+  //     <GrayCircle key={13} />,
+  //     <GrayCircle key={14} />,
+  //   ],
+  //   [
+  //     <YellowCircle key={10} />,
+  //     <YellowCircle key={11} />,
+  //     <GrayCircle key={12} />,
+  //     <GrayCircle key={13} />,
+  //     <GrayCircle key={14} />,
+  //   ],
+  //   [
+  //     <YellowCircle key={10} />,
+  //     <YellowCircle key={11} />,
+  //     <YellowCircle key={12} />,
+  //     <GrayCircle key={13} />,
+  //     <GrayCircle key={14} />,
+  //   ],
+  //   [
+  //     <YellowCircle key={10} />,
+  //     <YellowCircle key={11} />,
+  //     <YellowCircle key={12} />,
+  //     <YellowCircle key={13} />,
+  //     <GrayCircle key={14} />,
+  //   ],
+  //   [
+  //     <YellowCircle key={10} />,
+  //     <YellowCircle key={11} />,
+  //     <YellowCircle key={12} />,
+  //     <YellowCircle key={13} />,
+  //     <YellowCircle key={14} />,
+  //   ],
+  // ];
 
-  const circle = [
-    [
-      <YellowCircle key={10} />,
-      <GrayCircle key={11} />,
-      <GrayCircle key={12} />,
-      <GrayCircle key={13} />,
-      <GrayCircle key={14} />,
-    ],
-    [
-      <YellowCircle key={10} />,
-      <YellowCircle key={11} />,
-      <GrayCircle key={12} />,
-      <GrayCircle key={13} />,
-      <GrayCircle key={14} />,
-    ],
-    [
-      <YellowCircle key={10} />,
-      <YellowCircle key={11} />,
-      <YellowCircle key={12} />,
-      <GrayCircle key={13} />,
-      <GrayCircle key={14} />,
-    ],
-    [
-      <YellowCircle key={10} />,
-      <YellowCircle key={11} />,
-      <YellowCircle key={12} />,
-      <YellowCircle key={13} />,
-      <GrayCircle key={14} />,
-    ],
-    [
-      <YellowCircle key={10} />,
-      <YellowCircle key={11} />,
-      <YellowCircle key={12} />,
-      <YellowCircle key={13} />,
-      <YellowCircle key={14} />,
-    ],
-  ];
-
-  const randomCircle = function (array) {
-    const random = Math.floor(Math.random() * array.length);
-    return array[random];
-  };
+  // const randomCircle = function (array) {
+  //   const random = Math.floor(Math.random() * array.length);
+  //   return array[random];
+  // };
+  // ----------------------------------------
+  const cicleList = [0, 1, 2, 3, 4];
+  //( Math.random() * ( 최대값 - 최소값 )  ) + 최소값
 
   return (
     <ListStyle>
-      {day_btn.map((list, i) => {
+      <Title>내 일주일은?</Title>
+      {day_list.map((item, i) => {
+        let randomCircle = Math.floor(Math.random() * 5);
         return (
           <div
             key={i}
@@ -63,8 +69,19 @@ const DayList = (props) => {
               margin: "10px auto",
             }}
           >
-            <DayName>{list}</DayName>
-            <Circles>{randomCircle(circle)} </Circles>
+            <DayName>{item}</DayName>
+            {/* <Circles>{randomCircle(circle)} </Circles>
+            평점 랜덤함수/ 배열에서 무작위로 요소 선택해서 출력하는 방식 */}
+            {cicleList.map((item, i) => {
+              return (
+                <Circle
+                  key={i}
+                  style={{
+                    backgroundColor: i <= randomCircle ? "#ffeb3b" : "#ddd",
+                  }}
+                />
+              );
+            })}
             <DayBtn
               onClick={() => {
                 history.push("/review/" + i);
@@ -85,29 +102,20 @@ const ListStyle = styled.div`
   overflow-y: auto;
 `;
 
+const Title = styled.h3`
+  text-align: center;
+  margin-top: 50px;
+`;
+
 const DayName = styled.div`
   margin: 5px;
 `;
 
-const Circles = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const YellowCircle = styled.div`
+const Circle = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 30px;
-  margin: 0px 5px 5px 5px;
-  background-color: rgb(255, 235, 59);
-`;
-
-const GrayCircle = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  margin: 0px 5px 5px 5px;
-  background-color: rgb(221, 221, 221);
+  margin: 0px 5px;
 `;
 
 const DayBtn = styled.div`
@@ -125,5 +133,27 @@ const DayBtn = styled.div`
   color: rgb(255, 255, 255);
   cursor: pointer;
 `;
+
+// const Circles = styled.div`
+//   display: flex;
+//   flex-direction: row;
+// `;
+
+// const YellowCircle = styled.div`
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 30px;
+//   margin: 0px 5px 5px 5px;
+//   background-color: rgb(255, 235, 59);
+// `;
+
+// const GrayCircle = styled.div`
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 30px;
+//   margin: 0px 5px 5px 5px;
+//   background-color: rgb(221, 221, 221);
+// `;
+// 평점 랜덤함수/ 배열에서 무작위로 요소 선택해서 출력하는 방식 / 필요한 css
 
 export default DayList;

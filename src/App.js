@@ -5,18 +5,14 @@ import { Route } from "react-router-dom";
 import Review from "./Review";
 
 function App() {
-  const list = React.useState(["월", "화", "수", "목", "금", "토", "일"]);
-
   return (
     <AppWrap>
       <Container>
         <Route path="/review/:index">
           <Review />
         </Route>
-
         <Route path="/" exact>
-          <Title>내 일주일은?</Title>
-          <DayList list={list} />
+          <DayList />
         </Route>
       </Container>
     </AppWrap>
@@ -39,11 +35,6 @@ const Container = styled.div`
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
-`;
-
-const Title = styled.h3`
-  text-align: center;
-  margin-top: 50px;
 `;
 
 export default App;

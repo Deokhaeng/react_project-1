@@ -8,7 +8,7 @@ const Review = (props) => {
   const history = useHistory();
   const params = useParams();
   const day_index = params.index;
-  const day_list = useSelector((state) => state.day.list);
+  const day_list = useSelector((state) => state.day.item);
   const [cicleIdx, setColor] = React.useState(0);
 
   return (
@@ -52,6 +52,7 @@ const Title = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 42px 0px 0px 0px;
 `;
 
 const Days = styled.span`
