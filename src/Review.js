@@ -71,14 +71,6 @@ const CircleBox = styled.div`
   width: 100%;
 `;
 
-const GrayCircle = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  margin: 0px 5px 5px 5px;
-  backgroundColor: cicleIdx < idx + 1 ? #ddd : #ffeb3b
-`;
-
 const ReviewBtn = styled.button`
   width: 100%;
   background-color: purple;
