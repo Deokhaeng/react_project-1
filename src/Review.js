@@ -11,38 +11,6 @@ const Review = (props) => {
   const day_list = useSelector((state) => state.day.list);
   const [cicleIdx, setColor] = React.useState(0);
 
-  // const changeCircleColor = () => {};
-
-  // const [circleColor, setColor] = useState(true);
-  // console.log(circleColor);
-  // const ChangeCicleColor = () => {
-  //   setColor(!circleColor);
-  //   // circleColor === "yellow" ? setColor("red") : setColor("yellow");
-  //   // return circleColor;
-  // };
-
-  // console.log(circleColor);
-  // console.log(ChangeCicleColor);
-  // console.log(day_list);
-  // console.log(day_index);
-
-  // const ChangeCicle = () => {
-  //   const CircleColor = true ? <YellowCircle /> : <GrayCircle />;
-  //   return CircleColor;
-  // };
-
-  // const [clicked, setClicked] = useState([false, false, false, false, false]);
-
-  // const handleStarClick = (e, index) => {
-  //   e.preventDefault();
-  //   let clickStates = [...clicked];
-  //   for (let i = 0; i < 5; i++) {
-  //     if (i <= index) clickStates[i] = true;
-  //     else clickStates[i] = false;
-  //   }
-
-  //
-
   return (
     <div>
       <Title>
@@ -54,9 +22,6 @@ const Review = (props) => {
             <div
               key={idx}
               onClick={() => {
-                // 동그라미 하나를 누르면 평점을 남길거예요.
-                // idx는 0부터 시작하니까 +1을 해줘요.
-                // setRate는 state를 바꿔주는 칭구입니다. (위에서 useState 훅을 사용해서 만들어줬죠!)
                 setColor(idx + 1);
                 console.log(idx);
                 console.log(cicleIdx);
