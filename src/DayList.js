@@ -53,11 +53,21 @@ const DayList = (props) => {
   // };
   // ----------------------------------------
   const cicleList = [0, 1, 2, 3, 4];
+  const week_days = Object.keys(day_list).map((_d, idx) => {
+    // 오늘 날짜를 구해요!
+    let today = new Date().getDay();
+
+    let d =
+      today + parseInt(_d) > 6
+        ? today + parseInt(_d) - 7
+        : today + parseInt(_d);
+    return day_list[d];
+  });
 
   return (
     <ListStyle>
       <Title>내 일주일은?</Title>
-      {day_list.map((item, i) => {
+      {week_days.map((w, i) => {
         let randomCircle = Math.floor(Math.random() * 5);
         //( Math.random() * ( 최대값 - 최소값 )  ) + 최소값
         return (
@@ -69,10 +79,10 @@ const DayList = (props) => {
               margin: "10px auto",
             }}
           >
-            <DayName>{item}</DayName>
+            <DayName>{w}</DayName>
             {/* <Circles>{randomCircle(circle)} </Circles>
             평점 랜덤함수/ 배열에서 무작위로 요소 선택해서 출력하는 방식 */}
-            {cicleList.map((item, i) => {
+            {cicleList.map((w, i) => {
               return (
                 <Circle
                   key={i}

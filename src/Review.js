@@ -11,6 +11,21 @@ const Review = (props) => {
   const day_list = useSelector((state) => state.day.item);
   const [cicleIdx, setColor] = React.useState(0);
 
+  React.useEffect(() => {
+    const press = (e) => {
+      console.log(
+        "키보드를 누르면 어떤 이벤트가 발생하는 지 확인해야지! : ",
+        e
+      );
+      if ([1, 2, 3, 4, 5].indexOf(parseInt(e.key)) !== -1) {
+        setColor(parseInt(e.key));
+      }
+    };
+    window.addEventListener("keydown", press);
+
+    return () => window.removeEventListener("keydown", press);
+  }, []);
+
   return (
     <div style={{ padding: "10px" }}>
       <Title>
