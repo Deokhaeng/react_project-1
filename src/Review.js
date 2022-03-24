@@ -13,10 +13,6 @@ const Review = (props) => {
 
   React.useEffect(() => {
     const press = (e) => {
-      console.log(
-        "키보드를 누르면 어떤 이벤트가 발생하는 지 확인해야지! : ",
-        e
-      );
       if ([1, 2, 3, 4, 5].indexOf(parseInt(e.key)) !== -1) {
         setColor(parseInt(e.key));
       }
