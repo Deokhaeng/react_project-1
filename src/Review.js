@@ -12,18 +12,18 @@ const Review = (props) => {
   const [cicleIdx, setColor] = React.useState(0);
 
   return (
-    <div>
+    <div style={{ padding: "10px" }}>
       <Title>
         <Days>{day_list[day_index]}요일</Days> 평점 남기기
       </Title>
       <CircleBox>
-        {Array.from({ length: 5 }, (item, idx) => {
+        {Array.from({ length: 5 }, (item, circle) => {
           return (
             <div
-              key={idx}
+              key={circle}
               onClick={() => {
-                setColor(idx + 1);
-                console.log(idx);
+                setColor(circle + 1);
+                console.log(circle);
                 console.log(cicleIdx);
               }}
               style={{
@@ -31,7 +31,7 @@ const Review = (props) => {
                 height: "30px",
                 borderRadius: "30px",
                 margin: "5px",
-                backgroundColor: cicleIdx < idx + 1 ? "#ddd" : "#ffeb3b",
+                backgroundColor: cicleIdx < circle + 1 ? "#ddd" : "khaki",
               }}
             ></div>
           );
@@ -53,14 +53,15 @@ const Title = styled.h3`
   justify-content: center;
   align-items: center;
   margin: 42px 0px 0px 0px;
+  color: gray;
 `;
 
 const Days = styled.span`
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-weight: 900;
-  background: orange;
-  padding: 0.2rem;
-  border-radius: 5px;
+  background: #40e0d0;
+  padding: 0.5rem;
+  border-radius: 15px;
   margin: 5px;
 `;
 
@@ -74,12 +75,14 @@ const CircleBox = styled.div`
 
 const ReviewBtn = styled.button`
   width: 100%;
-  background-color: purple;
+  background-color: #40e0d0;
   border: none;
-  border-radius: 5px;
+  border-radius: 19px;
   padding: 1rem;
   color: rgb(255, 255, 255);
   max width: 10px;
+  font-size: 20px;
+  font-weight: 700;
 `;
 
 export default Review;

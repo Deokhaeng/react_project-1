@@ -33,8 +33,9 @@ const Container = styled.div`
   margin: auto;
   height: 70vh;
   padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px lightgray;
 `;
 
 export default App;

@@ -77,7 +77,7 @@ const DayList = (props) => {
                 <Circle
                   key={i}
                   style={{
-                    backgroundColor: i <= randomCircle ? "#ffeb3b" : "#ddd",
+                    backgroundColor: i <= randomCircle ? "khaki" : "#ddd",
                   }}
                 />
               );
@@ -100,11 +100,16 @@ const ListStyle = styled.div`
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  color: gray;
+  font-weight: 700;
+  font-size: 17px;
 `;
 
 const Title = styled.h3`
   text-align: center;
   margin-top: 50px;
+  color: #40e0d0;
+  font-size: 30px;
 `;
 
 const DayName = styled.div`
@@ -121,7 +126,7 @@ const Circle = styled.div`
 const DayBtn = styled.div`
   appearance: none;
   background-color: transparent;
-  border-color: transparent purple;
+  border-color: transparent #40e0d0;
   width: 0px;
   height: 0px;
   border-top-width: 1rem;
@@ -130,7 +135,6 @@ const DayBtn = styled.div`
   border-bottom-style: solid;
   border-left-width: 1.6rem;
   border-left-style: solid;
-  color: rgb(255, 255, 255);
   cursor: pointer;
 `;
 
